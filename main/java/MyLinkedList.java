@@ -84,5 +84,11 @@ public class MyLinkedList {
         }
         return false;
     }
+    // Insert element by searching node
+    public INode insertingBySearching(INode newNode, INode insertNode) {
+        insert(insertNode, newNode);
+        INode newInsertedNode = head.getNext();
+        return newInsertedNode;
+    }
 
 }
