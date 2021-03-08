@@ -111,6 +111,7 @@ public class MyLinkedListTest
                 myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    //Search element in the Linked List
     @Test
     public void SearchGivenElementFromLinkedListThenTrue()
     {
@@ -127,5 +128,31 @@ public class MyLinkedListTest
         System.out.println("All Element in Linked List");
         myLinkedList.printMyNodes();
         Assertions.assertEquals(true,myLinkedList.search(mySecondNode));
+    }
+    //Insert element by search node
+    @Test
+    public void SearchNodeAndThenInsertElementInLinkedListThenTrue()
+    {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> newNode = new MyNode<>(40);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+
+        System.out.println("All Element in Linked List");
+        myLinkedList.printMyNodes();
+        INode newNodePosition = myLinkedList.insertingBySearching(newNode,mySecondNode);
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                newNodePosition.getNext().equals(newNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+
+        Assertions.assertTrue(result);
     }
 }
