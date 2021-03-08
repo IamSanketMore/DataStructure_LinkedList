@@ -1,7 +1,11 @@
 public class MyLinkedList {
     public INode tail;
     public INode head;
+    public static int counter;
 
+    public static int getCounter() {
+        return counter;
+    }
     public MyLinkedList() {
         this.head=null;
         this.tail=null;
@@ -91,4 +95,20 @@ public class MyLinkedList {
         return newInsertedNode;
     }
 
+    public INode deleteAtIndex(INode element) {
+        counter --;
+
+        if (head.equals(element)) {
+            INode del = head;
+            head = head.getNext();
+            return del;
+        }
+        INode tempDeleteNode= head;
+        while (!tempDeleteNode.getNext().equals(element)) {
+            tempDeleteNode = tempDeleteNode.getNext();
+        }
+        INode tempNode = tempDeleteNode.getNext();
+        tempDeleteNode.setNext(tempDeleteNode.getNext().getNext());
+        return tempNode;
+    }
 }
