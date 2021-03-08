@@ -1,6 +1,7 @@
-public interface INode<K> {
-    K getKey();
-    void setKey(K key);
+public interface INode<S>
+{
+    S getKey();
+    void setKey(S key);
     INode getNext();
     void setNext(INode next);
 
