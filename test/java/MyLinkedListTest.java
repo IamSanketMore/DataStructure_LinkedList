@@ -111,4 +111,21 @@ public class MyLinkedListTest
                 myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    @Test
+    public void SearchGivenElementFromLinkedListThenTrue()
+    {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+
+        System.out.println("All Element in Linked List");
+        myLinkedList.printMyNodes();
+        Assertions.assertEquals(true,myLinkedList.search(mySecondNode));
+    }
 }
